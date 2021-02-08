@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+// import Button from './components/Button'
+import InputSection from './components/InputSection';
+import VisualFileStructure from './components/VisualFileStructure';
+import React, { useState } from 'react';
 
 function App() {
+  const [data, setData] = useState('');
+
+  const handleChange = (event) => {
+    setData(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <InputSection data={data} handleChange={handleChange} />
+      <VisualFileStructure data={data} />
     </div>
   );
 }
